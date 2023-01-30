@@ -1,0 +1,42 @@
+{% extends "main/home.html" %}
+
+{% block header %}
+<h1 class="p-5">قائمة طلاب  {{ class }}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="p-4">
+{% if students %}
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">الاسم</th>
+        <th scope="col">السلوك</th>
+        <th scope="col">بريد ولي الامر</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for student in students %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td><a href="{% url 'student' student.pk %}">{{ student.name }}</a></td>
+        {% if student.behavior == 0 %}
+        <td class="table-success">
+        {% elif student.behavior == 1 %}
+        <td class="table-warning">
+        {% else %}
+        <td class="table-danger">
+        {% endif %}
+            {{ student.get_behavior_display }}
+        </td>
+        <td class="">{{ student.email }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+<h1>لا يوجد طلاب مسجلون بهذا الفصل!</h1>
+{% endif %}
+</div>
+{% endblock %}

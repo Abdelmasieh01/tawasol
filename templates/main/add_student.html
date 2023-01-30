@@ -1,0 +1,16 @@
+{% extends 'main/home.html' %}
+
+{% block header %}
+<h1 class="p-5">من فضلك املأ بيانات الطالب الآتية:</h1>
+{% endblock %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container px-5">
+    <form method="post">
+      {% csrf_token %}
+          {{ form|crispy }}
+          <button class="btn btn-primary my-4" type="submit">اضافة</button>
+    </form>
+</div>
+{% endblock %}

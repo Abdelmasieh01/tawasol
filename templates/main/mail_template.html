@@ -1,0 +1,66 @@
+<html dir="rtl" lang="ar">
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+    
+<table class="table table-bordered" style="width:60rem">
+    <thead>
+      <tr>
+        <th scope="col">المادة</th>
+        <th scope="col">الدرجة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>اللغة انجليزية</td>
+        {% if grades.grade1 >= 50 %}
+        <td class="table-success">
+        {% else %}
+        <td class="table-danger">
+        {% endif %}
+        {{ grades.grade1 }}
+        </td>
+      </tr>
+      <tr>
+        <td>الحاسب</td>
+        {% if grades.grade2 >= 50 %}
+        <td class="table-success">
+        {% else %}
+        <td class="table-danger">
+        {% endif %}
+        {{ grades.grade2 }}
+        </td>
+      </tr>
+      <tr>
+        <td>رياضيات</td>
+        {% if grades.grade3 >= 50 %}
+        <td class="table-success">
+        {% else %}
+        <td class="table-danger">
+        {% endif %}
+        {{ grades.grade3 }}
+        </td>
+      </tr>
+      <tr>
+        <td>فيزياء</td>
+        {% if grades.grade4 >= 50 %}
+        <td class="table-success">
+        {% else %}
+        <td class="table-danger">
+        {% endif %}
+        {{ grades.grade4 }}
+        </td>
+      </tr>
+      <tr>
+        <td>كيمياء</td>
+        {% if grades.grade5 >= 50 %}
+        <td class="table-success">
+        {% else %}
+        <td class="table-danger">
+        {% endif %}
+        {{ grades.grade5 }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</html>

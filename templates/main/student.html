@@ -1,0 +1,102 @@
+{% extends "main/class.html" %}
+{% block header %}
+<h1 class="p-5">بيانات الطالب: {{ student.name }}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="px-4">
+<h2 class="px-5">حضور الطالب:</h2>
+{% if attendances %}
+  <table class="table table-bordered" style="width:60rem">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">اليوم</th>
+        <th scope="col">الحضور</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for date, attendance in attendances %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ date|date:'d/m/Y' }}</td>
+        {% if attendance %}
+        <td class="table-success">حاضر
+        {% else %}
+        <td class="table-danger">غائب
+        {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+<h1 class="px-5">لا توجد أي بيانات حضور</h1>
+{% endif %}
+<h2 class="px-5">درجات الطالب:</h2>
+{% if grades %}
+  <table class="table table-bordered" style="width:60rem">
+    <thead>
+      <tr>
+        <th scope="col">المادة</th>
+        <th scope="col">الدرجة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>اللغة انجليزية</td>
+        {% if grades.grade1 >= 50 %}
+        <td class="table-success">
+        {% else %}
+        <td class="table-danger">
+        {% endif %}
+        {{ grades.grade1 }}
+        </td>
+      </tr>
+      <tr>
+        <td>الحاسب</td>
+        {% if grades.grade2 >= 50 %}
+        <td class="table-success">
+        {% else %}
+        <td class="table-danger">
+        {% endif %}
+        {{ grades.grade2 }}
+        </td>
+      </tr>
+      <tr>
+        <td>رياضيات</td>
+        {% if grades.grade3 >= 50 %}
+        <td class="table-success">
+        {% else %}
+        <td class="table-danger">
+        {% endif %}
+        {{ grades.grade3 }}
+        </td>
+      </tr>
+      <tr>
+        <td>فيزياء</td>
+        {% if grades.grade4 >= 50 %}
+        <td class="table-success">
+        {% else %}
+        <td class="table-danger">
+        {% endif %}
+        {{ grades.grade4 }}
+        </td>
+      </tr>
+      <tr>
+        <td>كيمياء</td>
+        {% if grades.grade5 >= 50 %}
+        <td class="table-success">
+        {% else %}
+        <td class="table-danger">
+        {% endif %}
+        {{ grades.grade5 }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+{% else %}
+<h3 class="px-5">لم يتم إضافة أي بيانات درجات لهذا الطالب بعد.</h3>
+{% endif %}
+</div>
+{% endblock %}
