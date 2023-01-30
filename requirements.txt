@@ -4,6 +4,7 @@ charset-normalizer==3.0.1
 Django==4.1.5
 django-anymail==9.0
 django-crispy-forms==1.14.0
+gunicorn==20.1.0
 idna==3.4
 python-decouple==3.7
 python-http-client==3.3.7
