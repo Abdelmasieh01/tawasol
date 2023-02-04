@@ -7,6 +7,9 @@ from .models import Class, Student
 from .forms import StudentForm, GradesForm, AttendanceForm
 
 # Create your views here.
+def index(request):
+    return render(request, 'main/index.html',)
+
 def home(request):
     return render(request, 'main/home.html',)
 

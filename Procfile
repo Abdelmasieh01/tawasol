@@ -1,1 +1,1 @@
-web: gunicorn yosr.wsgi --log file -
+web: gunicorn yosr.wsgi --log-file -
