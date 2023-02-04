@@ -57,7 +57,7 @@ def add_grades(request):
             [grades.student.email],
             html_message=html_message,
             fail_silently=False
-        )
+            )
         #else:
             #give error
         
