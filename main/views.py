@@ -10,9 +10,6 @@ from .forms import StudentForm, GradesForm, AttendanceForm
 def index(request):
     return render(request, 'main/index.html',)
 
-def home(request):
-    return render(request, 'main/home.html',)
-
 def class_view(request, pk):
     class_object = get_object_or_404(Class, pk=pk)
     students = class_object.student_set.all()
