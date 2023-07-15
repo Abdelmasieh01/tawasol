@@ -36,8 +36,6 @@ def add_student(request):
         student_form = StudentForm(request.POST)
         if student_form.is_valid():
             student = student_form.save()
-        #else:
-            #give error
         
         return redirect(reverse('student', args=[student.pk]))
     student_form = StudentForm()
@@ -58,8 +56,6 @@ def add_grades(request):
             html_message=html_message,
             fail_silently=False
             )
-        #else:
-            #give error
         
         return redirect(reverse('student', args=[grades.student.pk]))
     grades_form = GradesForm()
@@ -69,10 +65,8 @@ def add_attendance(request):
     if request.method == 'POST':
         attendance_form = AttendanceForm(request.POST)
         if attendance_form.is_valid():
-            attendance_form.save()
-        #else:
-            #give error
-        
+            attendance_form.save()        
+
         return redirect('home')
     attendance_form = AttendanceForm()
     return render(request, 'main/add_attendance.html', {'form': attendance_form})
